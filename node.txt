@@ -1,0 +1,6 @@
+Node.js
+1、CMD模块化开发：产生自己的作用域，如需相互作用则需要模块化开发通过module.export暴露模块  require("../../*")接收模块
+2、require路径：路径的后缀 .js .json .node可省略、如果是相对路径一定要加上./  ../开头、如果是绝对路径一定要以 / 开头、如需引入node_modules文件夹下的模块，路径前面不需要加修饰符、如果引入的是文件夹，那么运行时会找该文件下的index.js文件
+3、ES6模块化开发：export暴露输出模块、import {}(解构) from './*'接收模块
+4、FS模块：const fs = require('fs')   异步文件写入fs.writeFile  同步文件写入fs.writeFileSync  异步文件内容追加fs.appendFile  同步文件内容追加fs.appendFileSync  异步文件读取fs.readFile  同步文件读取fs.readFileSync
+5、http模块：const http = require('http') const server = http.createServer(); //创建服务器 server.on('request',(request,response)=>{response.end()});  server.listen(8080,'localhost',(error)=>{console.log(error)}) //端口监听  

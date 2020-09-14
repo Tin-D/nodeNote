@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./a.js"></script>
+    <script src="./b.js"></script>
+    <script src="./main.js"></script>
+
+    <script>
+        var a = [
+            {
+                date: '2018-7-24', value: 2
+            },
+            {
+                date: '2018-7-24', value: 5
+            },
+            {
+                date: '2018-7-25', value: 5
+            },
+            {
+                date: '2018-7-25', value: 5
+            },
+        ]
+        var res = [
+            {
+                date: '2018-7-24', value: 7
+            },
+            {
+                date: '2018-7-25', value: 10
+            },
+
+        ]
+        // 创建映射
+        var map = a.reduce((p, c) => [p[c.date] = p[c.date] || 0, p[c.date] += c.value, p][2], {})
+        // 获取映射结果
+        var res = Object.keys(map).map(key => [{ date: key, value: map[key] }][0])
+        
+    </script>
+
+</body>
+
+</html>

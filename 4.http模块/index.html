@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>td加斜线</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+
+            table,
+            tr,
+            td {
+                border: 1px solid black;
+            }
+
+            td {
+                width: 100px;
+                /*这里需要自己调整，根据自己的需求调整宽度*/
+                height: 50px;
+                /*这里需要自己调整，根据自己的需求调整高度*/
+                position: relative;
+            }
+
+            td[class=first]:before {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 114px;
+                /*这里需要自己调整，根据td的宽度和高度*/
+                top: 0;
+                left: 0;
+                background-color: black;
+                display: block;
+                transform: rotate(-63deg);
+                /*这里需要自己调整，根据线的位置*/
+                transform-origin: top;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+            <tr>
+                <td class="first">12</td>
+                <td>11</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+
+    </html>
+    <script>
+        function fnc(a) {
+            this.value1 = a;
+            return q;
+            function q(b) {
+                this.value2 = this.value1 + b * 2;
+                var b1 = b;
+                return w;
+                function w(c) {
+                    return this.value1 + Math.pow(b, 2) + Math.pow(c, 2);
+                }
+            }
+        }
+        alert(fnc(1)(2)(3).value)
+
+
+
+        function fnc(a) {
+            this.value1 = Math.pow(a, 2)
+            return num1;
+            function num1(b) {
+                this.value2 = Math.pow(b, 2)
+                return num2;
+                function num2(c) {
+                    return this.value = this.value1 + this.value2 + Math.pow(c, 2)
+                }
+            }
+        }
+        console.log(fnc(1)(2)(3).value)
+    </script>
+</body>
+
+</html>

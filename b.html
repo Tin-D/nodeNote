@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>滚动条练习</title>
+    <style>
+        #info {
+            width: 300px;
+            height: 500px;
+            background-color: #bfa;
+            overflow: auto;
+        }
+        
+        #info::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            /*
+            当垂直滚动条到底时使表单项可用
+            onscroll
+            	该事件会在元素的滚动的时候触发
+            */
+            //获取id为info的p元素
+            var info = document.getElementById("info");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            //为info绑定一个滚动条滚动事件
+            console.log(info.scrollHeight, info.scrollTop, info.clientHeight);
+            info.addEventListener('scroll', (e) => {
+                console.log(e.target.scrollHeight - e.target.scrollTop == e.target.clientHeight);
+            });
+            info.onscroll = function() {
+                //检查垂直滚动条是否到底部
+                if (info.scrollHeight - info.scrollTop == info.clientHeight) {
+                    //到底部使表单项可用
+                    btn01.disabled = false;
+                    btn02.disabled = false;
+                }
+            }
+
+            //我们还要实现必须要勾选第一个按钮，才能按下提交按钮
+            btn02.onclick = function() {
+                if (btn01.checked == true) {
+                    alert("恭喜您注册成功！");
+                } else {
+                    alert("请勾选前面的协议条款，谢谢！");
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>欢迎亲爱的用户注册</h1>
+    <p id="info">
+        一、帐号注册 1、用户在使用本服务前需要注册一个“陌陌”帐号。“陌陌”帐号应当使用手机号码绑定注册，请用户使用尚未与“陌陌”帐号绑定的手机号码，以及未被陌陌科技根据本协议封禁的手机号码注册“陌陌”帐号。陌陌科技可以根据用户需求或产品需要对帐号注册和绑定的方式进行变更，而无须事先通知用户。 2、“陌陌”系基于地理位置的移动社交产品，用户注册时应当授权陌陌科技公开及使用其地理位置信息方可成功注册“陌陌”帐号。故用户完成注册即表明用户同意陌陌科技提取、公开及使用用户的地理位置信息。如用户需要终止向其他用户公开其地理位置信息，可自行设置为隐身状态。
+        3、鉴于“陌陌”帐号的绑定注册方式，您同意陌陌科技在注册时将使用您提供的手机号码及/或自动提取您的手机号码及自动提取您的手机设备识别码等信息用于注册。您同意给予运营商授权，授权运营商有权自动提取您的手机号码进行认证并用于“陌陌”账号注册，您保证遵守运营商的相关服务条款（点击查看服务条款），如运营商对您的手机号认证成功，则您的注册即完成。如您不同意对运营商的授权和/或服务条款或者是您的手机号认证失败，您可以手动修改运营商提取的手机号码，采取验证码方式进行注册登录。 4、在用户注册及使用本服务时，陌陌科技需要搜集能识别用户身份的个人信息以便陌陌科技可以在必要时联系用户，或为用户提供更好的使用体验。陌陌科技搜集的信息包括但不限于用户的姓名、性别、年龄、出生日期、身份证号、地址、学校情况、公司情况、所属行业、兴趣爱好、常出没的地方、个人说明；陌陌科技同意对这些信息的使用将受限于第三条用户个人隐私信息保护的约束
+    </p>
+    <!--如果表单项添加	disabled="disabled"，则表单项将变为不可用状态-->
+    <input type="checkbox" disabled="disabled" id="btn01">我已仔细阅读该协议并遵守
+    <input type="submit" disabled="disabled" value="注册" id="btn02">
+</body>
+
+</html>
