@@ -4,3 +4,5 @@ Node.js
 3、ES6模块化开发：export暴露输出模块、import {}(解构) from './*'接收模块
 4、FS模块：const fs = require('fs')   异步文件写入fs.writeFile  同步文件写入fs.writeFileSync  异步文件内容追加fs.appendFile  同步文件内容追加fs.appendFileSync  异步文件读取fs.readFile  同步文件读取fs.readFileSync
 5、http模块：const http = require('http') const server = http.createServer(); //创建服务器 server.on('request',(request,response)=>{response.end()});  server.listen(8080,'localhost',(error)=>{console.log(error)}) //端口监听  
+test
+
